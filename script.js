@@ -178,14 +178,13 @@ function filterRainbow() {
         pixel.setBlue(0.4 * avg + 153);
       }
     }
-    rainbowImage.drawTo(canvas);
   }
+  rainbowImage.drawTo(canvas);
 }
 
 function makeRainbow() {
   if (rainbowImage) {
     filterRainbow();
-    rainbowImage.drawTo(canvas);
   }
   alert("you make image rainbow");
 }
