@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <h1>Make filters</h1>
+    <canvas id="can"> </canvas>
+
+    <p> Load image <br>
+
+        <input type="file" id="file" value="choose file" multiple="false" accept="image/*" onchange="loadImage()">
+        </р>
+    <p> Choose filter <br>
+
+        <input type="button" value="make gray" onclick="makeGray()">
+        <input type="button" value="make red" onclick="makeRed()">
+        <input type="button" value="make blur" onclick="makeBlur()">
+        <input type="button" value="make rainbow" onclick="makeRainbow()">
+    </p>
+    <p> <input type="reset" value="reset" onclick="reset()">
+    </p>
+
+    <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js">
+    </script>
+</body>
