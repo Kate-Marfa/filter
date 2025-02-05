@@ -1,12 +1,12 @@
-var image = null;
-var canvas;
-var grayImage = null;
-var redImage = null;
-var blurImage = null;
-var rainbowImage = null;
+let image = null;
+let canvas;
+let grayImage = null;
+let redImage = null;
+let blurImage = null;
+let rainbowImage = null;
 
 function loadImage() {
-  var file = document.getElementById("file");
+  let file = document.getElementById("file");
   image = new SimpleImage(file);
   grayImage = new SimpleImage(file);
   redImage = new SimpleImage(file);
@@ -18,8 +18,8 @@ function loadImage() {
 }
 
 function filterGray() {
-  for (var pixel of grayImage.values()) {
-    var avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
+  for (let pixel of grayImage.values()) {
+    let avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
     pixel.setRed(avg);
     pixel.setGreen(avg);
     pixel.setBlue(avg);
@@ -37,8 +37,8 @@ function makeGray() {
 }
 
 function filterRed() {
-  for (var pixel of redImage.values()) {
-    var avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
+  for (let pixel of redImage.values()) {
+    let avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
     if (avg < 128) {
       pixel.setGreen(0);
       pixel.setRed(avg * 2);
@@ -60,15 +60,15 @@ function makeRed() {
 }
 
 function filterBlur() {
-  var output = blurImage;
+  let output = blurImage;
   for (var pixel of blurImage.values()) {
-    var x = pixel.getX();
-    var y = pixel.getY();
-    var randomXY = Math.round(Math.floor(Math.random() * 10));
-    var newX = x + randomXY;
+    let x = pixel.getX();
+    let y = pixel.getY();
+    let randomXY = Math.round(Math.floor(Math.random() * 10));
+    let newX = x + randomXY;
     if (newX < image.getWidth() && newX > 0) {
       if (Math.random() < 0.5) {
-        var newPixel = image.getPixel(newX, y);
+        let newPixel = image.getPixel(newX, y);
         output.setPixel(x, y, newPixel);
       } else {
         output.setPixel(x, y, pixel);
@@ -87,13 +87,13 @@ function makeBlur() {
 }
 
 function filterRainbow() {
-  var height = rainbowImage.getHeight();
-  for (var pixel of rainbowImage.values()) {
-    var y = pixel.getY();
-    var red = pixel.getRed();
-    var green = pixel.getGreen();
-    var blue = pixel.getBlue();
-    var avg = (red + green + blue) / 3;
+  let height = rainbowImage.getHeight();
+  for (let pixel of rainbowImage.values()) {
+    let y = pixel.getY();
+    let red = pixel.getRed();
+    let green = pixel.getGreen();
+    let blue = pixel.getBlue();
+    let avg = (red + green + blue) / 3;
     if (y <= height / 7) {
       if (avg < 128) {
         pixel.setRed(2 * avg);
